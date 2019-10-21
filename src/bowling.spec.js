@@ -48,6 +48,23 @@ describe('Bowling Scorecard', () => {
     expect(bowling.getScore()).to.be.eql(67);
   });
 
+  it('it calculates total with a strike and all gutters', () => {
+    addRolls(10, 1);
+    addRolls(0, 18);
+    expect(bowling.getScore()).to.be.eql(10);
+  });
+
+  it('it calculates total with a strike and all threes', () => {
+    addRolls(10, 1);
+    addRolls(3, 18);
+    expect(bowling.getScore()).to.be.eql(70);
+  });
+
+  it('it calculates game of 300', () => {
+    addRolls(10, 12);
+    expect(bowling.getScore()).to.be.eql(300);
+  });
+
   // it('calculates correct score provided a game', () => {
   //   const frames = [[0, 1], [0, 8], [8, 1]];
 

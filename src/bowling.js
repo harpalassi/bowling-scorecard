@@ -12,20 +12,28 @@ export class Bowling {
   getScore() {
     let score = 0;
     //iterate through two different indices in the rolls array which will include 10 frame arrays.
-    for (
-      let frameIndex = 0, rollIndex = 0;
-      frameIndex < 10;
-      frameIndex++, rollIndex += 2
-    ) {
+    for (let frameIndex = 0, rollIndex = 0; frameIndex < 10; frameIndex++) {
       // the first roll of the frame will be added to the score and so will the second roll by increasing the index
       score += this.rolls[rollIndex];
       score += this.rolls[rollIndex + 1];
 
       // if a spare is rolled within a frame (10 pins total), add the score of the following 1st index of frame
-      if (this.rolls[rollIndex] + this.rolls[rollIndex + 1] === 10) {
+      if (this.isSpare(rollIndex) || this.isStrike(rollIndex)) {
         score += this.rolls[rollIndex + 2];
       }
+      // if a strike
+      if (this.isStrike(rollIndex)) {
+        rollIndex++;
+      } else rollIndex += 2;
     }
     return score;
+  }
+
+  isSpare(rollIndex) {
+    return this.rolls[rollIndex] + this.rolls[rollIndex + 1] === 10;
+  }
+
+  isStrike(rollIndex) {
+    return this.rolls[rollIndex] === 10;
   }
 }
