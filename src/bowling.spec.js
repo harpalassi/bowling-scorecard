@@ -18,58 +18,70 @@ describe('Bowling Scorecard', () => {
     // the assignment. Make sure to break down the issue and keep things organized.
   });
 
-  let addRolls = (pins, times) => {
-    for (let i = 0; i < times; i++) {
+  // helper function, takes in number of pins down and how many rolls.
+  const addRolls = (pins, rolls) => {
+    for (let i = 0; i < rolls; i++) {
       bowling.addRoll(pins);
     }
   };
 
   // const myScoringAlgorithm = frames => {};
 
-  it('it calculates total with all gutterballs', () => {
+  it('calculates total with all gutterballs', () => {
     addRolls(0, 20);
     expect(bowling.getScore()).to.be.eql(0);
   });
 
-  it('it calculates total with all fours', () => {
+  it('calculates 5', () => {
     addRolls(4, 20);
     expect(bowling.getScore()).to.be.eql(80);
   });
 
-  it('it calculates total with a spare and all gutterballs', () => {
+  it('can roll all ones', () => {
+    addRolls(1, 5);
+    addRolls(1, 15);
+    expect(bowling.getScore()).to.be.eql(20);
+  });
+
+  it('calculates total with all fours', () => {
+    addRolls(4, 20);
+    expect(bowling.getScore()).to.be.eql(80);
+  });
+
+  it('does not accept negative pins', () => {
+    expect(() => bowling.addRoll(-1)).to.throw();
+  });
+
+  it('does not accept greater than pins per roll', () => {
+    expect(() => bowling.addRoll(11)).to.throw();
+  });
+
+  it('calculates total with a spare and all gutterballs', () => {
     addRolls(5, 2);
     addRolls(0, 18);
     expect(bowling.getScore()).to.be.eql(10);
   });
 
-  it('it calculates total with a spare and all threes', () => {
+  it('calculates total with a spare and all threes', () => {
     addRolls(5, 2);
     addRolls(3, 18);
     expect(bowling.getScore()).to.be.eql(67);
   });
 
-  it('it calculates total with a strike and all gutters', () => {
+  it('calculates total with a strike and all gutters', () => {
     addRolls(10, 1);
     addRolls(0, 18);
     expect(bowling.getScore()).to.be.eql(10);
   });
 
-  it('it calculates total with a strike and all threes', () => {
+  it('calculates total with a strike and all threes', () => {
     addRolls(10, 1);
     addRolls(3, 18);
     expect(bowling.getScore()).to.be.eql(70);
   });
 
-  it('it calculates game of 300', () => {
+  it('calculates game of 300', () => {
     addRolls(10, 12);
     expect(bowling.getScore()).to.be.eql(300);
   });
-
-  // it('calculates correct score provided a game', () => {
-  //   const frames = [[0, 1], [0, 8], [8, 1]];
-
-  //   let score = myScoringAlgorithm(frames);
-
-  //   expect(score).to.be.eql(18);
-  // });
 });
