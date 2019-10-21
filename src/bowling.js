@@ -1,42 +1,62 @@
-// create Bowling class object to intialize gamescoring
+/** Class representing a bowling game. */
 export class Bowling {
+  /**
+   * Rolls is the array of all rolls made in the entire game
+   */
   constructor() {
-    // rolls is the array of total rolls in the entire game
     this.rolls = [];
   }
-  // this method takes in the amount of pins hit and will add them into the rolls array
+
+  /**
+   * this method takes in the amount of pins hit and will add them into the rolls array
+   * @param  {number} pins
+   */
   addRoll(pins) {
     if (pins < 0 || pins > 10) {
-      throw new TypeError('cant be negative or greater than 10 pins');
+      throw new TypeError("Pins can't be negative or greater than 10");
     } else this.rolls.push(pins);
   }
 
-  //scoring method to calculate total score for the game
+  /**
+   * spare method to determine if two rolls within a frame equals a spare
+   * @param  {number} rollIndex
+   * @return {boolean} true if roll indices add up to 10
+   */
+  rolledSpare(rollIndex) {
+    return this.rolls[rollIndex] + this.rolls[rollIndex + 1] === 10;
+  }
+
+  /**
+   * determines if a single roll is a strike
+   * @param  {number} rollIndex
+   * @return {boolean} true if a single roll is 10
+   */
+  rolledStrike(rollIndex) {
+    return this.rolls[rollIndex] === 10;
+  }
+
+  /**
+   * scoring method to calculate total score for the bowling game
+   * within all frames and rolls
+   * @return {number} total score of game
+   */
   getScore() {
     let score = 0;
     let rollIndex = 0;
-    //iterate through 10 frame arrays within roll array.
+    // iterate through 10 frame arrays within roll array.
     for (let frameIndex = 0; frameIndex < 10; frameIndex++) {
       // the first roll of the frame will be added to the score and so will the second roll by increasing the index
       score += this.rolls[rollIndex] + this.rolls[rollIndex + 1];
 
       // if a spare is rolled within a frame (10 pins total), add the score of the following 1st index of frame
-      if (this.isSpare(rollIndex) || this.isStrike(rollIndex)) {
+      if (this.rolledSpare(rollIndex) || this.rolledStrike(rollIndex)) {
         score += this.rolls[rollIndex + 2];
       }
-      // if a strike
-      if (this.isStrike(rollIndex)) {
+      // if a strike, then move one index
+      if (this.rolledStrike(rollIndex)) {
         rollIndex++;
       } else rollIndex += 2;
     }
     return score;
-  }
-
-  isSpare(rollIndex) {
-    return this.rolls[rollIndex] + this.rolls[rollIndex + 1] === 10;
-  }
-
-  isStrike(rollIndex) {
-    return this.rolls[rollIndex] === 10;
   }
 }

@@ -7,8 +7,6 @@ import { Bowling } from './bowling.js';
 chai.use(sinonChai);
 sinonStubPromise(sinon);
 
-global.fetch = require('node-fetch');
-
 describe('Bowling Scorecard', () => {
   let bowling = Bowling;
   beforeEach(() => {
@@ -32,7 +30,7 @@ describe('Bowling Scorecard', () => {
     expect(bowling.getScore()).to.be.eql(0);
   });
 
-  it('calculates 5', () => {
+  it('calculates total with all fours', () => {
     addRolls(4, 20);
     expect(bowling.getScore()).to.be.eql(80);
   });
@@ -52,7 +50,7 @@ describe('Bowling Scorecard', () => {
     expect(() => bowling.addRoll(-1)).to.throw();
   });
 
-  it('does not accept greater than pins per roll', () => {
+  it('does not accept greater than 10 pins per roll', () => {
     expect(() => bowling.addRoll(11)).to.throw();
   });
 
