@@ -38,14 +38,17 @@ export class Bowling {
   /**
    * scoring method to calculate total score for the bowling game
    * within all frames and rolls
+   * @param {number} the number of frames completed - 10 is full game.
    * @return {number} total score of game
    */
-  getScore() {
+  getScore(frames) {
     let score = 0;
     let rollIndex = 0;
     // iterate through 10 frame arrays within roll array.
-    for (let frameIndex = 0; frameIndex < 10; frameIndex++) {
-      // the first roll of the frame will be added to the score and so will the second roll by increasing the index
+    for (let frameIndex = 0; frameIndex < frames; frameIndex++) {
+      /**
+       * open frame - the first and second roll of the frame will be added to the score
+       */
       score += this.rolls[rollIndex] + this.rolls[rollIndex + 1];
 
       // if a spare is rolled within a frame (10 pins total), add the score of the following 1st index of frame
@@ -55,7 +58,9 @@ export class Bowling {
       // if a strike, then move one index
       if (this.rolledStrike(rollIndex)) {
         rollIndex++;
-      } else rollIndex += 2;
+      }
+      // move to the next frame
+      else rollIndex += 2;
     }
     return score;
   }
