@@ -51,7 +51,7 @@ export class Bowling {
        */
       score += this.rolls[rollIndex] + this.rolls[rollIndex + 1];
 
-      // if a spare is rolled within a frame (10 pins total), add the score of the following 1st index of frame
+      // if a spare or strike is rolled within a frame (10 pins total), add the score of the following roll as bonus
       if (this.rolledSpare(rollIndex) || this.rolledStrike(rollIndex)) {
         score += this.rolls[rollIndex + 2];
       }
