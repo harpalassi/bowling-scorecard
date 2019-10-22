@@ -1,8 +1,8 @@
 # Bowling Scorecard 🎳
 
-[![Build Status](https://travis-ci.org/luketevl/boilerplate-mocha-chai.svg?branch=master)](https://travis-ci.org/luketevl/boilerplate-mocha-chai)
+[![Build Status](https://travis-ci.com/harpalassi/bowling-scorecard.svg?branch=master)](https://travis-ci.com/harpalassi/bowling-scorecard)
 
-[![Coverage Status](https://coveralls.io/repos/github/luketevl/boilerplate-mocha-chai/badge.svg?branch=master)](https://coveralls.io/github/luketevl/boilerplate-mocha-chai?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/harpalassi/bowling-scorecard/badge.svg?branch=master)](https://coveralls.io/github/harpalassi/bowling-scorecard?branch=master)
 
 _Bowling Scorecard_ is an app built with `JavaScript` and extensively tested using the `Chai` assertion library. This app calculates scores from a bowling game from certain frames or a full game of ten frames.
 
