@@ -4,16 +4,11 @@
 
 [![Coverage Status](https://coveralls.io/repos/github/luketevl/boilerplate-mocha-chai/badge.svg?branch=master)](https://coveralls.io/github/luketevl/boilerplate-mocha-chai?branch=master)
 
-_Bowling Scorecard_ is built using Test-Driven Development in `JavaScript` with tests using the `Chai` assertion library.
-This was a fantastic exercise in learning how to build an algorithm from the ground up with testing first and the algorithm second. I was always in watch mode and ensuring that each test remained passing before breaking down the next step in the problem. I really liked that it was much more simple to refactor code when the tests are already in place.
+_Bowling Scorecard_ is an app built with `JavaScript` and extensively tested using the `Chai` assertion library. This app calculates scores from a bowling game from certain frames or a full game of ten frames.
 
-## Getting Started
+## Installation
 
-The following instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
-
-### Installation
-
-Please clone and download this folder to your hard disk. You will then navigate to the folder and run `npm install` or `yarn`. This will install all dependencies needed. You will then run `npm run test:tdd` to begin all tests and remain in watch mode.
+Clone and download this folder to your hard disk. You will then navigate to the folder and run `npm install` or `yarn`. This will install all dependencies needed.
 
 ### Functionality
 
@@ -42,16 +37,12 @@ To keep things DRY, I used a helper function in my tests to quickly enter the nu
 
 ### Testing
 
-I wrote tests to ensure many things about the algorithm were robust. These including things such as the following:
+To start the tests, run `npm run test` or `npm run test:tdd` for watch mode. Tests include the following:
 
-- Does not accept negative numbers or more than 10 pins per roll
+- Rolls do not accept negative numbers or more than 10 pins per roll
 
-- Calculates total with all gutter-balls
+- Calculates total score with all gutter-balls
 
-- Calculates incomplete games with open frames including spares and with strikes.
+- Calculates incomplete games with open frames as well as spares and strikes.
 
-- Calculates total with all strikes, and strikes with open frames
-
-- Calculates total with spares and open frames
-
-- Calculates a perfect game of 300
+- Calculates a perfect game of 300 with all strikes

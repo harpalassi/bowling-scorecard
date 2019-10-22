@@ -20,13 +20,18 @@ describe('Bowling Scorecard', () => {
     }
   };
 
-  it('does not accept negative pins', () => {
+  it('addRoll does not accept negative pins', () => {
     expect(() => bowling.addRoll(-1)).to.throw();
   });
 
-  it('does not accept greater than 10 pins per roll', () => {
+  it('addRoll does not accept greater than 10 pins per roll', () => {
     expect(() => bowling.addRoll(11)).to.throw();
   });
+
+  // it('rolledSpare calculates whether two subsequent rolls equal 10', () => {
+  //   const rolls = [4, 6];
+  //   expect(bowling.rolledSpare(rolls[0]).to.be.eql(10));
+  // });
 
   it('calculates total with all gutterballs', () => {
     addRolls(0, 20);
