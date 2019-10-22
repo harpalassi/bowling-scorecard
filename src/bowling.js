@@ -37,9 +37,9 @@ export class Bowling {
 
   /**
    * scoring method to calculate total score for the bowling game
-   * within all frames and rolls
-   * @param {number} the number of frames completed - 10 is full game.
-   * @return {number} total score of game
+   * within all frames or selection of frames
+   * @param {number} frames - the number of frames completed - 10 is full game.
+   * @return {number} score - total score of game
    */
   getScore(frames) {
     let score = 0;
@@ -55,11 +55,11 @@ export class Bowling {
       if (this.rolledSpare(rollIndex) || this.rolledStrike(rollIndex)) {
         score += this.rolls[rollIndex + 2];
       }
-      // if a strike, then move one index
+      // if a strike, frame is only one roll
       if (this.rolledStrike(rollIndex)) {
         rollIndex++;
       }
-      // move to the next frame
+      // otherwise frame is two rolls
       else rollIndex += 2;
     }
     return score;
