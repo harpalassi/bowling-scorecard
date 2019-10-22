@@ -8,7 +8,7 @@ _Bowling Scorecard_ is an app built with `JavaScript` and extensively tested usi
 
 ## Installation
 
-Clone and download this folder to your hard disk. You will then navigate to the folder and run `npm install` or `yarn`. This will install all dependencies needed.
+Clone and download this folder to your hard disk. You will then navigate to the folder and run `npm install` or `yarn`. This will install all dependencies needed. The files are within the `src` folder and are `bowling.js` and `bowling.spec.js`
 
 ### Functionality
 
@@ -40,6 +40,8 @@ To keep things DRY, I used a helper function in my tests to quickly enter the nu
 To start the tests, run `npm run test` or `npm run test:tdd` for watch mode. Tests include the following:
 
 - Rolls do not accept negative numbers or more than 10 pins per roll
+
+- Can confirm whether a strike or a spare is made within a frame
 
 - Calculates total score with all gutter-balls
 
