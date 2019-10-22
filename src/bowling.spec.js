@@ -11,9 +11,6 @@ describe('Bowling Scorecard', () => {
   let bowling = Bowling;
   beforeEach(() => {
     bowling = new Bowling();
-    // This example test suite is for a nudge in the right direction but feel free
-    // change the shape of the specs or even move in a completely different direction that you feel best for
-    // the assignment. Make sure to break down the issue and keep things organized.
   });
 
   // helper function, takes in number of pins down and how many rolls.
@@ -22,8 +19,6 @@ describe('Bowling Scorecard', () => {
       bowling.addRoll(pins);
     }
   };
-
-  // const myScoringAlgorithm = frames => {};
 
   it('does not accept negative pins', () => {
     expect(() => bowling.addRoll(-1)).to.throw();

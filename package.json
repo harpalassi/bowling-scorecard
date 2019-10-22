@@ -1,7 +1,7 @@
 {
-  "name": "boilerplate-mocha-chai",
+  "name": "bowling-scorecard",
   "version": "1.0.0",
-  "description": "Boilerplate to TDD using mocha and Chai",
+  "description": "a TDD built bowling scorecard algorithm",
   "main": "lib/index.js",
   "files": [
     "dist",
@@ -35,19 +35,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/luketevl/boilerplate-mocha-chai.git"
+    "url": "git+https://github.com/harpalassi/bowling-scorecard"
   },
   "keywords": [
     "tdd",
     "mocha",
     "chai"
   ],
-  "author": "luketevl",
+  "author": "Harpal Assi",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/luketevl/boilerplate-mocha-chai/issues"
-  },
-  "homepage": "https://github.com/luketevl/boilerplate-mocha-chai#readme",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.21.0",
