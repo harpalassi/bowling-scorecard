@@ -27,12 +27,12 @@ In the case of incomplete games, I made the number of the frames an argument in 
 
 To keep things DRY, I used a helper function in my tests to quickly enter the number of pins knocked down and for how many rolls.
 
-```// helper function, takes in number of pins down and how many rolls.
-  const addRolls = (pins, rolls) => {
-    for (let i = 0; i < rolls; i++) {
-      bowling.addRoll(pins);
-    }
-  };
+```javascript
+const addRolls = (pins, rolls) => {
+  for (let i = 0; i < rolls; i++) {
+    bowling.addRoll(pins);
+  }
+};
 ```
 
 ### Testing
